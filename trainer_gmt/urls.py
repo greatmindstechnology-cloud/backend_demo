@@ -1,0 +1,46 @@
+from django.urls import path
+from .views import trainer_create_course, trainer_add_section, trainer_add_lecture,get_trainer_course_data,create_topic,create_quiz_question,create_assignment,submit_assignment,grade_assignment,update_course_details,get_all_assignments,get_all_submissions,get_student_results,counselor_apply, get_counselor_applications, update_counselor_application,update_counselor_application_status,submit_counseling_request, get_counseling_requests,get_available_counselors,accept_counseling_request, reject_counseling_request, submit_counseling_feedback,get_counseling_session,complete_counseling_request,interviewer_apply, update_interviewer_application, get_interviewer_applications_admin,update_interviewer_application_status, get_available_interviewers, submit_interview_request,get_interview_requests, accept_interview_request, reject_interview_request,get_interview_session, complete_interview_request, submit_interview_feedback
+    
+urlpatterns = [
+    path('courses/create/', trainer_create_course, name='trainer_create_course'),
+    path('courses/sections/', trainer_add_section, name='trainer_add_section'),
+    path('sections/lectures/', trainer_add_lecture, name='trainer_add_lecture'),
+    path('trainer/courses/', get_trainer_course_data, name='trainer_courses'),
+    path('create/topic/' , create_topic,name='trainer_create_topics'),
+    path('create/quiz-question/' , create_quiz_question, name='trainer_create_quiz-question'),
+    path('assignment/create/',create_assignment, name='create-assignment'),
+    path('assignment/submit/',submit_assignment, name='submit-assignment'),
+    path('assignment/grade/',grade_assignment, name='grade-assignment'),
+    path('update/course/',update_course_details,name="update_course_details"),
+    path('get_assignments/', get_all_assignments, name='get_all_assignments'),
+    path('get_assignment-submissions/', get_all_submissions, name='get_all_submissions'),
+    path('get_assignment-results/<int:student_id>/', get_student_results, name='get_student_results'),
+    path('counselor/apply/', counselor_apply, name='counselor_apply'),
+    path('counselor/applications/', get_counselor_applications, name='get_counselor_applications'),
+    path('counselor/applications/<int:id>/', update_counselor_application, name='update_counselor_application'),
+    path('admin/counselor/applications/', get_counselor_applications, name='admin_get_counselor_applications'),
+    path('admin/counselor/applications/<int:id>/', update_counselor_application_status, name='update_counselor_application_status'),
+    path('counseling/request/', submit_counseling_request, name='submit_counseling_request'),
+    path('counseling/requests/', get_counseling_requests, name='get_counseling_requests'),
+    path('counseling/available-counselors/', get_available_counselors, name='get_available_counselors'),
+    path('counseling/requests/<int:id>/accept/', accept_counseling_request, name='accept_counseling_request'),
+    path('counseling/requests/<int:id>/reject/', reject_counseling_request, name='reject_counseling_request'),
+    path('counseling/requests/<int:id>/feedback/', submit_counseling_feedback, name='submit_counseling_feedback'),
+    path('counseling/session/<int:id>/', get_counseling_session, name='get_counseling_session'),
+    path('counseling/requests/<int:id>/complete/', complete_counseling_request, name='complete_counseling_request'),
+
+
+
+    path('interviewer/apply/', interviewer_apply, name='interviewer_apply'),
+    path('interviewer/applications/<int:id>/', update_interviewer_application, name='update_interviewer_application'),
+    path('admin/interviewer/applications/', get_interviewer_applications_admin, name='get_interviewer_applications_admin'),
+    path('admin/interviewer/applications/<int:id>/', update_interviewer_application_status, name='update_interviewer_application_status'),
+    path('interview/available-interviewers/', get_available_interviewers, name='get_available_interviewers'),
+    path('interview/request/', submit_interview_request, name='submit_interview_request'),
+    path('interview/requests/', get_interview_requests, name='get_interview_requests'),
+    path('interview/requests/<int:id>/accept/', accept_interview_request, name='accept_interview_request'),
+    path('interview/requests/<int:id>/reject/', reject_interview_request, name='reject_interview_request'),
+    path('interview/session/<int:id>/', get_interview_session, name='get_interview_session'),
+    path('interview/requests/<int:id>/complete/', complete_interview_request, name='complete_interview_request'),
+    path('interview/requests/<int:id>/feedback/', submit_interview_feedback, name='submit_interview_feedback'),
+]
